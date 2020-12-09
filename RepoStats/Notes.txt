@@ -1,0 +1,1 @@
+﻿PowerBI authentication https://docs.microsoft.com/en-us/power-bi/developer/embedded/register-app?tabs=customers%2CAzure
