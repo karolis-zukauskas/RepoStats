@@ -1,20 +1,10 @@
-﻿using Azure.Storage.Queues;
+﻿using System;
 using System.Data.SqlClient;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Configuration;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
 using static RepoStats.Constants;
-using System.Text;
-using System.Web;
 
 namespace RepoStats.Controllers
     {

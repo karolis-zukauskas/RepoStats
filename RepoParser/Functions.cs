@@ -1,9 +1,6 @@
-using System.Configuration;
 using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Microsoft.Azure.WebJobs;
@@ -32,21 +29,8 @@ namespace RepoParser
             return client;
             }
 
-        public static async Task Test()
-            {
-            GitHubClient client = GetClient();
-            var repo = JsonConvert.DeserializeObject<ProcessRepositoryRequest>("{ \"repoOwner\": \"karolis\", \"repoName\": \"repo-name\" }");
-
-            var result = await client.Repository.Statistics.GetParticipation("karolis-zukauskas", "APSP");
-
-            return;
-            }
-
         public static async Task ProcessRepository([QueueTrigger("queue")] string message, TextWriter log)
             {
-            // Examples: https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#list-repository-languages
-            // TOKEN: ff6388318e6086f012f1548da41f1775210100c5
-
             var connectionString = ConfigurationManager.ConnectionStrings["DbConnectionString"].ToString();
             var repo = JsonConvert.DeserializeObject<ProcessRepositoryRequest>(message);
             var client = GetClient();
